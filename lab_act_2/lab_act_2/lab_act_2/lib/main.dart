@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
- 
+import 'package:lab_act_2/dice_roller.dart';
+
 void main() {
   runApp(
     MaterialApp(
@@ -8,26 +9,12 @@ void main() {
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
-              Colors.black,
-              Colors.white,
+              const Color.fromARGB(255, 71, 6, 6),
+              const Color.fromARGB(255, 31, 3, 3),
             ])
           ),
           child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-              Image.asset(
-                width: 200,
-                'asset/dice-images/dice-2.png'
-              ),
-              SizedBox(height: 30),
-              TextButton(onPressed: () {}, 
-              child: Text(
-                style: TextStyle(fontSize: 28),
-                "Roll Dice"
-                )
-              )
-            ],),
+            child: DiceRoller()
           ),
         ),
       ),
