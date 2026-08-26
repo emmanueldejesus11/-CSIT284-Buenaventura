@@ -4,8 +4,32 @@ void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.yellow,
-        body: Container(child: Center(child: Text("Hello World"))),
+        backgroundColor: Colors.grey,
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Colors.black,
+              Colors.white,
+            ])
+          ),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+              Image.asset(
+                width: 200,
+                'asset/dice-images/dice-2.png'
+              ),
+              SizedBox(height: 30),
+              TextButton(onPressed: () {}, 
+              child: Text(
+                style: TextStyle(fontSize: 28),
+                "Roll Dice"
+                )
+              )
+            ],),
+          ),
+        ),
       ),
     ),
   );
