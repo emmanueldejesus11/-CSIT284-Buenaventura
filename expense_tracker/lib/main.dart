@@ -1,36 +1,24 @@
 import 'package:flutter/material.dart';
-
-final kColorScheme = ColorScheme.fromSeed(
-  seedColor: const Color.fromARGB(255, 0, 121, 107), // pick your own!
-);
-
-final kDarkColorScheme = ColorScheme.fromSeed(
-  brightness: Brightness.dark,
-  seedColor: const Color.fromARGB(255, 0, 121, 107),
-);
+import 'package:expense_tracker/theme/app_theme.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      theme: ThemeData().copyWith(
-        colorScheme: kColorScheme,
-        appBarTheme: const AppBarTheme().copyWith(
-          backgroundColor: kColorScheme.primaryContainer,
-          foregroundColor: kColorScheme.onPrimaryContainer,
-        ),
-        cardTheme: const CardThemeData().copyWith(
-          color: kColorScheme.secondaryContainer,
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: kColorScheme.primaryContainer,
-          ),
-        ),
-      ),
-      darkTheme: ThemeData.dark().copyWith(colorScheme: kDarkColorScheme),
+  runApp(const ExpenseTrackerApp());
+}
+
+class ExpenseTrackerApp extends StatelessWidget {
+  const ExpenseTrackerApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Expense Tracker',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
-      home: const Scaffold(body: Center(child: Text('Expense Tracker'))),
-    ),
-  );
+      home: const Scaffold(
+        body: Center(child: Text('Expense Tracker')),
+      ),
+    );
+  }
 }
