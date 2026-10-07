@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
+import 'package:expense_tracker/widgets/chart/chart.dart';
 import 'package:expense_tracker/widgets/expenses_list.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
 
@@ -40,9 +41,18 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
           ),
         ],
       ),
-      body: _registeredExpenses.isEmpty
-          ? const Center(child: Text('No expenses yet. Tap + to add one!'))
-          : ExpensesList(expenses: _registeredExpenses),
+      body: Column(
+        children: [
+          Chart(expenses: _registeredExpenses),
+          Expanded(
+            child: _registeredExpenses.isEmpty
+                ? const Center(
+                    child: Text('No expenses yet. Tap + to add one!'),
+                  )
+                : ExpensesList(expenses: _registeredExpenses),
+          ),
+        ],
+      ),
     );
   }
 }
